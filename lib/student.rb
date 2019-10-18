@@ -30,7 +30,7 @@ class Student
       WHERE grade = 10
     SQL
     
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end.first(x)
   end 
@@ -42,7 +42,7 @@ class Student
       WHERE grade = 10
     SQL
     
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end.first
   end 
@@ -56,7 +56,7 @@ class Student
       FROM students 
     SQL
     
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
   end
@@ -68,7 +68,7 @@ class Student
       WHERE grade < 12
     SQL
     
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
     
@@ -81,7 +81,7 @@ class Student
       WHERE grade = 9
     SQL
     
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
     
