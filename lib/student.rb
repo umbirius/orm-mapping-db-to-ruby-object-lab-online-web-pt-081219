@@ -19,7 +19,7 @@ class Student
     
     DB[:conn].execute(sql).collect do |row|
       self.new_from_db(row)
-    end.[1..10]
+    end
   end 
     
 
