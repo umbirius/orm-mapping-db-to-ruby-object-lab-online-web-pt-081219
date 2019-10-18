@@ -14,12 +14,12 @@ class Student
     sql = <<-SQL
       SELECT * 
       FROM students
-      WHERE grade = 
+      WHERE grade = ?
     SQL
     
-    DB[:conn].execute(sql).collect do |row|
+    DB[:conn].execute(sql, grade).map do |row|
       self.new_from_db(row)
-    end.first(x)
+    end
   end 
 
 
