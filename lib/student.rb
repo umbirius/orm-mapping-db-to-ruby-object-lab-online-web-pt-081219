@@ -10,7 +10,7 @@ class Student
     new_student
   end
 
-  def self.first_X_students_in_grade_10(X)
+  def self.first_X_students_in_grade_10(x)
     sql = <<-SQL
       SELECT * 
       FROM students
@@ -19,7 +19,7 @@ class Student
     
     DB[:conn].execute(sql).collect do |row|
       self.new_from_db(row)
-    end.first(X)
+    end.first(x)
   end 
     
 
